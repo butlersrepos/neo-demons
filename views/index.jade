@@ -1,3 +1,7 @@
 html
 	head
-	body= 'You did it! On ' + new Date()
+		script(src="/js/bundle.js")
+		link(rel="stylesheet", href="/css/index.css")
+	body
+		h1#title-bar NEO DEMONS v0.1
+		canvas#main-canvas(width=640, height=480)

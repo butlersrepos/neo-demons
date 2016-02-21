@@ -1,6 +1,7 @@
 {
 	"verbose": true,
 	"watch": ["src/"],
+	"ignore": ["src/client"],
 	"execMap": {
 		"js": "node --harmony"
 	}
