@@ -1,4 +1,6 @@
 {
+	"verbose": true,
+	"watch": ["src/"],
 	"execMap": {
 		"js": "node --harmony"
 	}
