@@ -1,0 +1,49 @@
+{
+  "name": "neo-demons",
+  "version": "0.1.0",
+  "description": "A crap game made by crap people",
+  "main": "neo-demons.js",
+  "scripts": {
+    "test": "mocha test/ --harmony --compilers js:babel-core/register",
+    "dev": "node_modules/.bin/nodemon src/neo-demons.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/butlersrepos/neo-demons.git"
+  },
+  "keywords": [
+    "Node",
+    "Game",
+    "Browser",
+    "Sockets",
+    "Terrible"
+  ],
+  "author": "Eric Butler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/butlersrepos/neo-demons/issues"
+  },
+  "homepage": "https://github.com/butlersrepos/neo-demons#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "browserify": "^13.0.0",
+    "jade": "^1.11.0",
+    "jadeify2": "0.0.5",
+    "koa": "^1.1.2",
+    "koa-views": "^4.0.1",
+    "mocha": "^2.4.5",
+    "node-sass": "^3.4.2",
+    "rewire": "^2.5.1",
+    "socket.js": "^0.1.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.0"
+  }
+}
