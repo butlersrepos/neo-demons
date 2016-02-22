@@ -4,11 +4,13 @@
   "description": "A crap game made by crap people",
   "main": "neo-demons.js",
   "scripts": {
+    "watch-css": "node-sass src/client/scss/ -o build/css/ -w",
+    "watch-js": "watchify src/client/js/index.js -o build/js/bundle.js -v",
     "browserify": "mkdirp build/js && browserify src/client/js/index.js -o build/js/bundle.js",
     "sass": "node-sass src/client/scss/ -o build/css/",
     "build": "npm run browserify & npm run sass",
     "test": "mocha test/ --harmony --compilers js:babel-core/register",
-    "dev": "nodemon src/neo-demons.js"
+    "dev": "npm run watch-css & npm run watch-js"
   },
   "repository": {
     "type": "git",
@@ -42,7 +44,8 @@
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
     "rewire": "^2.5.1",
-    "socket.js": "^0.1.1"
+    "socket.js": "^0.1.1",
+    "watchify": "^3.7.0"
   },
   "babel": {
     "presets": [
