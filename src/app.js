@@ -19,6 +19,6 @@
 	});
 	// Start up server on 8080
 	app.listen(8080, () => {
-		console.log(`Server is totally up at http://localhost:8080`);
+		console.log(`Server is up at http://localhost:8080`);
 	});
 })();

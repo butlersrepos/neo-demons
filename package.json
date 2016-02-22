@@ -10,7 +10,7 @@
     "sass": "node-sass src/client/scss/ -o build/css/",
     "build": "npm run browserify & npm run sass",
     "test": "mocha test/ --harmony --compilers js:babel-core/register",
-    "dev": "npm run watch-css & npm run watch-js"
+    "dev": "npm run build && npm run watch-css & npm run watch-js & nodemon src/app.js"
   },
   "repository": {
     "type": "git",
