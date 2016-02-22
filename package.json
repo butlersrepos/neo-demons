@@ -4,13 +4,15 @@
   "description": "A crap game made by crap people",
   "main": "neo-demons.js",
   "scripts": {
-    "watch-css": "node-sass src/client/scss/ -o build/css/ -w",
-    "watch-js": "watchify src/client/js/index.js -o build/js/bundle.js -v",
+    "copy:img": "cpx src/client/img/* build/img",
+    "watch:img": "cpx src/client/img/* build/img -w",
+    "watch:css": "node-sass src/client/scss/ -o build/css/ -w",
+    "watch:js": "watchify src/client/js/index.js -o build/js/bundle.js -v",
     "browserify": "mkdirp build/js && browserify src/client/js/index.js -o build/js/bundle.js",
     "sass": "node-sass src/client/scss/ -o build/css/",
-    "build": "npm run browserify & npm run sass",
+    "build": "npm run copy:img & npm run browserify & npm run sass",
     "test": "mocha test/ --harmony --compilers js:babel-core/register",
-    "dev": "npm run build && npm run watch-css & npm run watch-js & nodemon src/app.js"
+    "dev": "npm run build && npm run watch:img & npm run watch:css & npm run watch:js & nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,7 @@
     "babel-cli": "^6.5.1",
     "babel-preset-es2015": "^6.5.0",
     "browserify": "^13.0.0",
+    "cpx": "^1.2.1",
     "jade": "^1.11.0",
     "jadeify2": "0.0.5",
     "jquery": "^2.2.0",
@@ -43,6 +46,7 @@
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
+    "pixi.js": "git+https://github.com/pixijs/pixi.js.git",
     "rewire": "^2.5.1",
     "socket.js": "^0.1.1",
     "watchify": "^3.7.0"
