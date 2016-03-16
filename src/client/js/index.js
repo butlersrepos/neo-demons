@@ -1,7 +1,7 @@
 'use strict';
 
 let $ = require('jquery');
-let pixi = require('pixi.js');
+let PIXI = require('pixi.js');
 let stage, renderer;
 
 $(document).ready(() => {
@@ -17,37 +17,44 @@ $(document).ready(() => {
 	//let graphic = createMyGraphic();
 	//stage.addChild(graphic);
 
-	pixi.loader
+	PIXI.loader
 		.add('img/robots.png')
 		.load(onAssetsLoaded);
 });
 
 function animate() {
-	requestAnimationFrame(animate);
-
 	renderer.render(stage);
+
+	requestAnimationFrame(animate);
+}
+
+function createRobotSprite() {
+	var robotDownClip = [];
+
+	for( let i = 0; i < 3; i++ ) {
+		let rectangle = new PIXI.Rectangle(0 + 32 * i, 0, 32, 32);
+		let texture = new PIXI.Texture(PIXI.utils.TextureCache['img/robots.png'], rectangle);
+		robotDownClip.push(texture);
+	}
+
+	//Create the sprite from the texture
+	var robot = new PIXI.extras.MovieClip(robotDownClip);
+
+	//Position the robot sprite on the canvas
+	robot.x = 16;
+	robot.y = 16;
+	robot.animationSpeed = 0.1;
+	robot.play();
+	return robot;
 }
 
 function onAssetsLoaded(loader, res) {
-	//Create the `tileset` sprite from the texture
-	var texture = pixi.TextureCache['img/robots.png'];
-	//Create a rectangle object that defines the position and
-	//size of the sub-image you want to extract from the texture
-	var rectangle = new pixi.Rectangle(0, 0, 32, 32);
-
-	//Tell the texture to use that rectangular section
-	texture.frame = rectangle;
-
-	//Create the sprite from the texture
-	var robot = new pixi.Sprite(texture);
-
-	//Position the robot sprite on the canvas
-	robot.x = 32;
-	robot.y = 32;
+	let robot = createRobotSprite();
 
 	//Add the robot to the stage
 	stage.addChild(robot);
 
+	console.log("Robot is playing: " + robot.playing);
 	// When done.
 	requestAnimationFrame(animate);
 }
